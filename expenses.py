@@ -12,4 +12,4 @@ def add_category(args):
     else:
         data['categories'].append(args.category)
         save_data(data)
-        print(f"Категория '{args.category}' успешно добавлена.")
+        print(f"Категория {args.category} успешно добавлена.")
