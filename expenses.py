@@ -35,3 +35,13 @@ def add_expense(args):
     data['expenses'].append(new_expense)
     save_data(data)
     print(f"Добавлен расход: {args.name} ({cost})")  
+
+def list_expenses(args):
+    data = load_data()
+    expenses = data['expenses']
+    
+    if args.category:
+        expenses = [e for e in expenses if e['category'] == args.category]
+
+    for e in expenses:
+        print(f"[{e['category']}] {e['name']}: {e['cost']}")
