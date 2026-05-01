@@ -72,5 +72,13 @@ def main():
     p_list.add_argument("category", nargs="?")
     p_list.set_defaults(func=list_expenses)
 
+    p_total = subparsers.add_parser("total")
+    p_total.add_argument("category", nargs="?")
+    p_total.set_defaults(func=total_expenses)
+
+    args = parser.parse_args()
+    if args.command:
+        args.func(args)
+
 if __name__ == "__main__":
     main()
