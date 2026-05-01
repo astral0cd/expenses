@@ -68,5 +68,9 @@ def main():
     p_add.add_argument("name")
     p_add.set_defaults(func=add_expense)
 
+    p_list = subparsers.add_parser("list")
+    p_list.add_argument("category", nargs="?")
+    p_list.set_defaults(func=list_expenses)
+
 if __name__ == "__main__":
     main()
