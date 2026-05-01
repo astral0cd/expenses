@@ -55,4 +55,10 @@ def total_expenses(args):
     print(f"Итого: {total}")
 
 def main():
-    None
+    parser = argparse.ArgumentParser(description="Учёт расходов")
+    subparsers = parser.add_subparsers(dest="command")
+
+    p_add_cat = subparsers.add_parser("add-category")
+    p_add_cat.add_argument("category")
+    p_add_cat.set_defaults(func=add_category)
+    
