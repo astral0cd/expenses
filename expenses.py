@@ -61,4 +61,6 @@ def main():
     p_add_cat = subparsers.add_parser("add-category")
     p_add_cat.add_argument("category")
     p_add_cat.set_defaults(func=add_category)
-    
+
+if __name__ == "__main__":
+    main()
