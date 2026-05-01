@@ -1,6 +1,4 @@
 import argparse
-import json
-import os
 from storage import load_data, save_data
 
 DATA_FILE = 'expenses.json'
@@ -45,3 +43,16 @@ def list_expenses(args):
 
     for e in expenses:
         print(f"[{e['category']}] {e['name']}: {e['cost']}")
+
+def total_expenses(args):
+    data = load_data()
+    expenses = data['expenses']
+    
+    if args.category:
+        expenses = [e for e in expenses if e['category'] == args.category]
+    
+    total = sum(e['cost'] for e in expenses)
+    print(f"Итого: {total}")
+
+def main():
+    None
